@@ -106,6 +106,3 @@ Infosys Springboard Project
 
 ---
 
-## 📜 License
-
-This project is for educational and research purposes.
