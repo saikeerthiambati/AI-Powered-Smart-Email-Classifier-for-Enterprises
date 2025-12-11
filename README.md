@@ -1,17 +1,18 @@
-🧠 Smart Email Classifier — An AI-Powered Email Categorization System
+# 🧠 Smart Email Classifier
 
 An AI-powered system designed to clean, categorize, and prepare email datasets for intelligent spam detection and enterprise-level email classification.
 
-This repository contains Milestone 1, focusing on data cleaning, preprocessing, merging, and creation of the final ML-ready dataset.
+This repository currently contains **Milestone 1**, focusing on data cleaning, preprocessing, merging, labeling, and creation of the final ML-ready dataset.
 
-📁 Project Structure
+## 📁 Project Structure
+
 Smart-Email-Classifier/
 │
 ├── data/
-│   ├── raw/        # Original datasets
-│   └── clean/      # Cleaned & processed datasets
+│   ├── raw/            # Original unprocessed datasets
+│   └── clean/          # Cleaned & transformed datasets
 │
-├── src/            # All Python scripts
+├── src/                # Python source scripts
 │   ├── combine.py
 │   ├── category.py
 │   ├── final_dataset.py
@@ -21,51 +22,77 @@ Smart-Email-Classifier/
 ├── README.md
 └── .gitignore
 
-🎯 Milestone 1 — Summary (Completed)
 
-Cleaned raw email datasets
+## 🎯 Milestone 1 — Summary (Completed)
 
-Merged multiple datasets
+- Cleaned raw email datasets  
+- Merged datasets into a unified structure  
+- Added spam / general labels  
+- Assigned categories using cleaned text  
+- Performed text normalization & preprocessing  
+- Added feature engineering:
+  - text_length  
+  - num_words  
+  - num_digits  
+  - has_url  
+- Generated the final ML-ready dataset  
 
-Added spam/general labels
+📌 **Final output file:**  
+`data/clean/final_dataset.csv`
 
-Assigned categories
 
-Performed text preprocessing
+## 🛠 Scripts Overview
 
-Added engineered features
+| Script Name         | Description |
+|---------------------|-------------|
+| `combine.py`        | Merges raw datasets into one combined file |
+| `category.py`       | Cleans text & assigns categories |
+| `final_dataset.py`  | Generates the final dataset with engineered features |
+| `priority.py`       | Assigns priority levels to emails |
+| `spam_email.py`     | Initial spam-email processing and testing |
 
-Created final_dataset.csv for training
 
-Output file: 📌 data/clean/final_dataset.csv
+## 🚀 How to Run the Project
 
-🛠 Scripts Overview
-Script	Purpose
-combine.py -	Merge raw datasets
-category.py	- Clean text + assign categories
-final_dataset.py	- Generate final ML-ready dataset
-priority.py -	Assign priority levels to emails
-spam_email.py	- Initial spam email processing
-🚀 How to Run
-Step 1 — Go to src folder: cd src
+### Step 1 — Navigate to the src folder
+```
+cd src
+```
 
-Step 2 — Generate final dataset: python final_dataset.py
+### Step 2 — Run the final dataset generation script
+```
+python final_dataset.py
+```
 
-Dataset will be saved in: data/clean/final_dataset.csv
+This will generate the file:
 
-📌 Upcoming Milestone 2
+```
+data/clean/final_dataset.csv
+```
 
-TF-IDF vectorization
+---
 
-Logistic Regression & SVM models
+## 📌 Upcoming Milestone 2
 
-Model evaluation (Accuracy, Precision, Recall, F1)
+- TF-IDF vectorization  
+- Logistic Regression & SVM models  
+- Performance metrics (Accuracy, Precision, Recall, F1-score)  
+- Confusion matrix visualization  
+- Save & load trained model  
 
-Confusion matrix visualization
+---
 
-Save trained model
+## 📌 Future Enhancements
 
-👨‍💻 Author
+- Real-time email classification API (FastAPI/Flask)  
+- Streamlit web interface  
+- Phishing detection using URL-pattern analysis  
+- Deep learning (BERT) based classifier  
 
-Sai Keerthi Ambati
-AI & Machine Learning Enthusiast
+---
+
+## 👨‍💻 Author
+
+**Sai Keerthi Ambati**  
+AI & Machine Learning Enththusiast  
+Infosys Springboard Project  
