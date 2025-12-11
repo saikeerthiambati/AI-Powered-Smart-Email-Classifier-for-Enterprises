@@ -3,11 +3,9 @@ import re
 
 print("📁 Adding category...")
 
-# load cleaned spam dataset
-df = pd.read_csv("spam_dataset_cleaned_encoded.csv")
+df = pd.read_csv(r"C:\Users\HP\Desktop\Infosys Springboard\Clean Datasets\spam_dataset_cleaned_encoded.csv")
 
-# load email class dataset
-email = pd.read_csv("emailclass.csv")
+email = pd.read_csv(r"C:\Users\HP\Desktop\Infosys Springboard\Raw Datasets\emailclass.csv")
 
 # clean email text too (same cleaning!)
 def clean(text):
