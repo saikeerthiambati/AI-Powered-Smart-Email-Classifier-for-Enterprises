@@ -4,8 +4,11 @@ An AI-powered system designed to clean, categorize, and prepare email datasets f
 
 This repository currently contains **Milestone 1**, focusing on data cleaning, preprocessing, merging, labeling, and creation of the final ML-ready dataset.
 
+---
+
 ## 📁 Project Structure
 
+```
 Smart-Email-Classifier/
 │
 ├── data/
@@ -21,7 +24,9 @@ Smart-Email-Classifier/
 │
 ├── README.md
 └── .gitignore
+```
 
+---
 
 ## 🎯 Milestone 1 — Summary (Completed)
 
@@ -40,6 +45,7 @@ Smart-Email-Classifier/
 📌 **Final output file:**  
 `data/clean/final_dataset.csv`
 
+---
 
 ## 🛠 Scripts Overview
 
@@ -51,6 +57,7 @@ Smart-Email-Classifier/
 | `priority.py`       | Assigns priority levels to emails |
 | `spam_email.py`     | Initial spam-email processing and testing |
 
+---
 
 ## 🚀 How to Run the Project
 
@@ -96,3 +103,9 @@ data/clean/final_dataset.csv
 **Sai Keerthi Ambati**  
 AI & Machine Learning Enththusiast  
 Infosys Springboard Project  
+
+---
+
+## 📜 License
+
+This project is for educational and research purposes.
