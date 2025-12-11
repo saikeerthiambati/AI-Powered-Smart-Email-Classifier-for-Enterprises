@@ -6,7 +6,7 @@ print("🚀 Preparing spam dataset...")
 # -------------------------------------------------
 # 1️⃣ Load dataset (combined dataset from previous step)
 # -------------------------------------------------
-df = pd.read_csv("spam_dataset_final.csv")
+df = pd.read_csv("data/Clean Datasets/spam_dataset_final.csv")
 print("✔ Loaded spam_dataset_final.csv")
 
 # -------------------------------------------------

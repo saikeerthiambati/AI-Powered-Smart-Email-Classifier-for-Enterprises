@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv("Clean Datasets/spam_with_category.csv")
+df = pd.read_csv("data/Clean Datasets/spam_with_category.csv")
 
 # rule-based priority
 def assign_priority(cat):

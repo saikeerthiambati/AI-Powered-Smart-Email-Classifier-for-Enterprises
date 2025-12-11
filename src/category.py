@@ -3,9 +3,9 @@ import re
 
 print("📁 Adding category...")
 
-df = pd.read_csv(r"Clean Datasets/spam_dataset_cleaned_encoded.csv")
+df = pd.read_csv(r"data/Clean Datasets/spam_dataset_cleaned_encoded.csv")
 
-email = pd.read_csv(r"Raw Datasets/emailclass.csv")
+email = pd.read_csv(r"data/Raw Datasets/emailclass.csv")
 
 # clean email text too (same cleaning!)
 def clean(text):
