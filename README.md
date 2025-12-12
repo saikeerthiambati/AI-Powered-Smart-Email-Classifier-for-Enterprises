@@ -101,7 +101,7 @@ data/clean/final_dataset.csv
 ## 👨‍💻 Author
 
 **Sai Keerthi Ambati**  
-AI & Machine Learning Enththusiast  
+AI & Machine Learning Enthusiast  
 Infosys Springboard Project  
 
 ---
