@@ -1,4 +1,4 @@
-# 🧠 Smart Email Classifier
+# AI Powered Smart Email Classifier for Enterprises
 
 An AI-powered system designed to clean, categorize, and prepare email datasets for intelligent spam detection and enterprise-level email classification.
 
