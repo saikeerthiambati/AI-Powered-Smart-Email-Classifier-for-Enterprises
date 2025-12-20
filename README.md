@@ -21,20 +21,21 @@ Prepare the foundation for enterprise-level deployment
 AI-Powered-Smart-Email-Classifier-for-Enterprises/
 │
 ├── data/
-│ ├── raw/ # Original unprocessed datasets
-│ └── clean/ # Cleaned & ML-ready datasets
+│   ├── raw/                    # Original unprocessed datasets
+│   └── clean/                  # Cleaned & ML-ready datasets
 │
 ├── src/
-│ ├── combine.py # Dataset merging
-│ ├── category.py # Text cleaning & category labeling
-│ ├── final_dataset.py # Final dataset creation
-│ ├── priority.py # Email priority assignment
-│ ├── spam_email.py # Initial spam processing
-│ └── baseline_models.py # Milestone 2 classification models
+│   ├── combine.py              # Dataset merging
+│   ├── category.py             # Text cleaning & category labeling
+│   ├── final_dataset.py        # Final dataset creation
+│   ├── priority.py             # Email priority assignment
+│   ├── spam_email.py           # Initial spam processing
+│   └── baseline_models.py      # Milestone 2 classification models
 │
 ├── README.md
 ├── LICENSE
 └── .gitignore
+
 ✅ Milestone 1 — Data Collection & Preprocessing (Completed)
 
 Objective: Prepare a clean and labeled dataset for machine learning.
