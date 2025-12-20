@@ -43,29 +43,18 @@ Objective: Prepare a clean and labeled dataset for machine learning.
 
 Key Achievements
 
-Cleaned raw email datasets
-
-Removed noise (HTML tags, punctuation, stopwords)
-
-Normalized text for NLP processing
-
-Labeled emails with:
-
-Spam / Non-spam
-
-Email categories
-
-Engineered useful features:
-
+1. Cleaned raw email datasets
+2. Removed noise (HTML tags, punctuation, stopwords)
+3. Normalized text for NLP processing
+4. Labeled emails with:
+          Spam / Non-spam
+          Email categories
+5. Engineered useful features:
 text_length
-
 num_words
-
 num_digits
-
 has_url
-
-Generated a unified ML-ready dataset
+6. Generated a unified ML-ready dataset
 
 📌 Final Output File:
 
@@ -75,30 +64,18 @@ data/clean/final_dataset.csv
 
 Objective: Develop and evaluate an NLP-based email classification system.
 
-Implemented Features
-
-TF-IDF based text vectorization
-
-Baseline machine learning models:
-
-Logistic Regression
-
-Support Vector Machine (SVM)
-
-Naive Bayes (for comparison)
-
+Implemented Features:
+1. TF-IDF based text vectorization
+2. Baseline machine learning models:
+           Logistic Regression 
+           Support Vector Machine (SVM)
+           Naive Bayes (for comparison)
 Model evaluation using:
-
 Accuracy
-
 Precision
-
 Recall
-
 F1-score
-
 Confusion matrix visualization for performance analysis
-
 Comparative analysis of classifiers
 
 📌 Key Script:
@@ -106,20 +83,20 @@ Comparative analysis of classifiers
 src/baseline_models.py
 
 🛠 Scripts Overview
-Script Name	Description
-combine.py	Merges raw datasets into a single dataset
-category.py	Cleans email text and assigns categories
-final_dataset.py	Generates the final ML-ready dataset
-priority.py	Assigns urgency levels to emails
-spam_email.py	Initial spam classification logic
-baseline_models.py	Trains and evaluates ML classifiers
+Script Name                   	Description
+combine.py	         Merges raw datasets into a single dataset
+category.py	         Cleans email text and assigns categories
+final_dataset.py	   Generates the final ML-ready dataset
+priority.py	         Assigns urgency levels to emails
+spam_email.py	       Initial spam classification logic
+baseline_models.py	 Trains and evaluates ML classifiers
+
 🚀 How to Run the Project
 Step 1: Navigate to the source directory
 cd src
 
 Step 2: Generate the final dataset
 python final_dataset.py
-
 
 This will create:
 
@@ -131,11 +108,9 @@ python baseline_models.py
 
 This will:
 
-Train ML models
-
-Display evaluation metrics
-
-Visualize confusion matrices
+1.Train ML models
+2.Display evaluation metrics
+3.Visualize confusion matrices
 
 📌 Future Enhancements
 
