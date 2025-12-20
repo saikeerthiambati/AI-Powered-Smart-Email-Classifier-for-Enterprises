@@ -36,6 +36,7 @@ AI-Powered-Smart-Email-Classifier-for-Enterprises/
 ├── LICENSE
 └── .gitignore
 
+```
 ✅ Milestone 1 — Data Collection & Preprocessing (Completed)
 
 Objective: Prepare a clean and labeled dataset for machine learning.
