@@ -1,108 +1,158 @@
-# AI Powered Smart Email Classifier for Enterprises
+AI Powered Smart Email Classifier for Enterprises
 
-An AI-powered system designed to clean, categorize, and prepare email datasets for intelligent spam detection and enterprise-level email classification.
+An AI-powered system designed to automatically clean, categorize, and analyze enterprise email datasets for intelligent spam detection, email categorization, and priority assignment using Natural Language Processing (NLP) and Machine Learning techniques.
 
-This repository currently contains **Milestone 1**, focusing on data cleaning, preprocessing, merging, labeling, and creation of the final ML-ready dataset.
+📌 Project Overview
 
----
+Enterprises receive thousands of emails daily related to customer complaints, service requests, feedback, and spam. Manual email triaging is time-consuming and inefficient, often leading to delayed responses and reduced customer satisfaction.
 
-## 📁 Project Structure
+This project focuses on building an AI-powered Smart Email Classifier that automates email categorization and supports intelligent decision-making by leveraging NLP and machine learning models.
 
-```
-Smart-Email-Classifier/
+🎯 Project Objectives
+
+Automate email classification into multiple categories
+
+Reduce manual effort in email triaging
+
+Improve response prioritization and efficiency
+
+Prepare the foundation for enterprise-level deployment
+
+📁 Project Structure
+AI-Powered-Smart-Email-Classifier-for-Enterprises/
 │
 ├── data/
-│   ├── raw/            # Original unprocessed datasets
-│   └── clean/          # Cleaned & transformed datasets
+│   ├── raw/                    # Original unprocessed datasets
+│   └── clean/                  # Cleaned & ML-ready datasets
 │
-├── src/                # Python source scripts
-│   ├── combine.py
-│   ├── category.py
-│   ├── final_dataset.py
-│   ├── priority.py
-│   └── spam_email.py
+├── src/
+│   ├── combine.py              # Dataset merging
+│   ├── category.py             # Text cleaning & category labeling
+│   ├── final_dataset.py        # Final dataset creation
+│   ├── priority.py             # Email priority assignment
+│   ├── spam_email.py           # Initial spam processing
+│   └── baseline_models.py      # Milestone 2 classification models
 │
 ├── README.md
+├── LICENSE
 └── .gitignore
-```
 
----
+✅ Milestone 1 — Data Collection & Preprocessing (Completed)
 
-## 🎯 Milestone 1 — Summary (Completed)
+Objective: Prepare a clean and labeled dataset for machine learning.
 
-- Cleaned raw email datasets  
-- Merged datasets into a unified structure  
-- Added spam / general labels  
-- Assigned categories using cleaned text  
-- Performed text normalization & preprocessing  
-- Added feature engineering:
-  - text_length  
-  - num_words  
-  - num_digits  
-  - has_url  
-- Generated the final ML-ready dataset  
+Key Achievements
 
-📌 **Final output file:**  
-`data/clean/final_dataset.csv`
+Cleaned raw email datasets
 
----
+Removed noise (HTML tags, punctuation, stopwords)
 
-## 🛠 Scripts Overview
+Normalized text for NLP processing
 
-| Script Name         | Description |
-|---------------------|-------------|
-| `combine.py`        | Merges raw datasets into one combined file |
-| `category.py`       | Cleans text & assigns categories |
-| `final_dataset.py`  | Generates the final dataset with engineered features |
-| `priority.py`       | Assigns priority levels to emails |
-| `spam_email.py`     | Initial spam-email processing and testing |
+Labeled emails with:
 
----
+Spam / Non-spam
 
-## 🚀 How to Run the Project
+Email categories
 
-### Step 1 — Navigate to the src folder
-```
-cd src
-```
+Engineered useful features:
 
-### Step 2 — Run the final dataset generation script
-```
-python final_dataset.py
-```
+text_length
 
-This will generate the file:
+num_words
 
-```
+num_digits
+
+has_url
+
+Generated a unified ML-ready dataset
+
+📌 Final Output File:
+
 data/clean/final_dataset.csv
-```
 
----
+✅ Milestone 2 — Email Categorization Engine (Completed)
 
-## 📌 Upcoming Milestone 2
+Objective: Develop and evaluate an NLP-based email classification system.
 
-- TF-IDF vectorization  
-- Logistic Regression & SVM models  
-- Performance metrics (Accuracy, Precision, Recall, F1-score)  
-- Confusion matrix visualization  
-- Save & load trained model  
+Implemented Features
 
----
+TF-IDF based text vectorization
 
-## 📌 Future Enhancements
+Baseline machine learning models:
 
-- Real-time email classification API (FastAPI/Flask)  
-- Streamlit web interface  
-- Phishing detection using URL-pattern analysis  
-- Deep learning (BERT) based classifier  
+Logistic Regression
 
----
+Support Vector Machine (SVM)
 
-## 👨‍💻 Author
+Naive Bayes (for comparison)
 
-**Sai Keerthi Ambati**  
-AI & Machine Learning Enthusiast  
-Infosys Springboard Project  
+Model evaluation using:
 
----
+Accuracy
 
+Precision
+
+Recall
+
+F1-score
+
+Confusion matrix visualization for performance analysis
+
+Comparative analysis of classifiers
+
+📌 Key Script:
+
+src/baseline_models.py
+
+🛠 Scripts Overview
+Script Name	Description
+combine.py	Merges raw datasets into a single dataset
+category.py	Cleans email text and assigns categories
+final_dataset.py	Generates the final ML-ready dataset
+priority.py	Assigns urgency levels to emails
+spam_email.py	Initial spam classification logic
+baseline_models.py	Trains and evaluates ML classifiers
+🚀 How to Run the Project
+Step 1: Navigate to the source directory
+cd src
+
+Step 2: Generate the final dataset
+python final_dataset.py
+
+
+This will create:
+
+data/clean/final_dataset.csv
+
+Step 3: Run Milestone 2 classification models
+python baseline_models.py
+
+
+This will:
+
+Train ML models
+
+Display evaluation metrics
+
+Visualize confusion matrices
+
+📌 Future Enhancements
+
+Urgency prediction model (High / Medium / Low)
+
+Deep learning models (BERT / DistilBERT)
+
+Real-time email classification API (FastAPI / Flask)
+
+Interactive dashboard for enterprise users
+
+Cloud deployment (AWS / Azure / GCP)
+
+Phishing detection using URL and content analysis
+
+👨‍💻 Author
+
+Sai Keerthi Ambati
+AI & Machine Learning Enthusiast
+Infosys Springboard Intern
