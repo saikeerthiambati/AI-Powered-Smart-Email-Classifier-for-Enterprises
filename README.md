@@ -67,8 +67,8 @@ Objective: Develop and evaluate an NLP-based email classification system.
 Implemented Features:
 1. TF-IDF based text vectorization
 2. Baseline machine learning models:
-           Logistic Regression 
-           Support Vector Machine (SVM)
+           Logistic Regression, 
+           Support Vector Machine (SVM),
            Naive Bayes (for comparison)
 Model evaluation using:
 Accuracy
