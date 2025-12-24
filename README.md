@@ -85,6 +85,7 @@ src/baseline_models.py
 🛠 Scripts Overview
 Script Name                   	Description
 combine.py	         Merges raw datasets into a single dataset
+
 category.py	         Cleans email text and assigns categories
 final_dataset.py	   Generates the final ML-ready dataset
 priority.py	         Assigns urgency levels to emails
