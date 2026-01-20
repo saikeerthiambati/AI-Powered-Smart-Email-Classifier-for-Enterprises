@@ -6,7 +6,7 @@ from sklearn.preprocessing import LabelEncoder
 print("🚀 Running DistilBERT inference for email categorization...")
 
 # Load dataset
-df = pd.read_csv("../data/Clean Datasets/spam_with_category.csv")
+df = pd.read_csv("../data/Clean Datasets/spam_with_category_and_urgency.csv")
 df = df.dropna(subset=["clean_text", "category"])
 
 # Encode labels

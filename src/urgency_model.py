@@ -5,7 +5,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, confusion_matrix
 
 # Load dataset
-df = pd.read_csv("../data/Clean Datasets/spam_with_category_and_urgency.csv")
+df = pd.read_csv("data/Clean Datasets/spam_with_category_and_urgency.csv")
 
 # Remove rows with missing text or urgency
 df = df.dropna(subset=['clean_text', 'urgency'])
@@ -37,3 +37,15 @@ print(confusion_matrix(y_test, y_pred))
 
 print("\nClassification Report:")
 print(classification_report(y_test, y_pred))
+from urgency_keywords import keyword_urgency
+
+def final_urgency(text):
+    keyword_result = keyword_urgency(text)
+
+    if keyword_result == "High":
+        return "High"
+
+    vec = vectorizer.transform([text])
+    return model.predict(vec)[0]
+print(final_urgency("This is urgent, my service is not working"))
+print(final_urgency("Need support regarding my request"))

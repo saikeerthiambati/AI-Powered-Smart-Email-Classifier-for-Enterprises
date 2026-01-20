@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Email Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="header">
+        <h1>AI Powered Smart Email Classifier</h1>
+        <p>Classify and prioritize enterprise emails automatically</p>
+    </div>
+
+    <div class="card">
+        <form method="post" action="/predict">
+            <label for="email">Enter Email Content:</label>
+            <textarea name="email" rows="6" placeholder="Paste email text here..." required></textarea>
+            <button type="submit">Classify Email</button>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <h3>📊 Classification Result</h3>
+
+            <span class="badge category">{{ result.category }}</span>
+            <span class="badge urgency">{{ result.urgency }}</span>
+
+            <p><strong>Explanation:</strong></p>
+            <p>
+                The system detected this as a <b>{{ result.category }}</b> email and assigned
+                an urgency level of <b>{{ result.urgency }}</b> based on keywords and ML models.
+            </p>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="footer">
+        Built by Sai Keerthi • Infosys Springboard Project
+    </div>
+
+</body>
+</html>

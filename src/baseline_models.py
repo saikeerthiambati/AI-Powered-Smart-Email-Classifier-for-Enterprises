@@ -12,7 +12,7 @@ import joblib
 # ===============================
 # 1. Load dataset
 # ===============================
-data = pd.read_csv("../data/Clean Datasets/final_dataset.csv")
+data = pd.read_csv("../data/Clean Datasets/final_email_dataset.csv")
 
 # ===============================
 # 2. Handle missing values

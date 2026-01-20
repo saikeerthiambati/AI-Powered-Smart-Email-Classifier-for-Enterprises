@@ -6,7 +6,7 @@ print("🚀 Preparing spam dataset...")
 # -------------------------------------------------
 # 1️⃣ Load dataset (combined dataset from previous step)
 # -------------------------------------------------
-df = pd.read_csv("data/Clean Datasets/spam_dataset_final.csv")
+df = pd.read_csv(r"C:\Users\HP\Desktop\Infosys Springboard\data\Clean Datasets\spam_dataset_final.csv")
 print("✔ Loaded spam_dataset_final.csv")
 
 # -------------------------------------------------
@@ -39,7 +39,9 @@ print("✔ Labels fixed (1 = spam, 0 = ham)")
 # -------------------------------------------------
 # 4️⃣ Save final cleaned+encoded version
 # -------------------------------------------------
-df.to_csv("spam_dataset_cleaned_encoded.csv", index=False)
+
+output_path = "../data/Clean Datasets/spam_dataset_cleaned_encoded.csv"
+df.to_csv(output_path, index=False)
 
 print("🎉 Saved as spam_dataset_cleaned_encoded.csv")
 print("📌 Total rows:", len(df))

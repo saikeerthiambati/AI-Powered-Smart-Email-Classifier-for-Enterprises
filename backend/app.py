@@ -1,28 +1,50 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask import Flask, render_template, request
+import sys
+sys.path.append("../src")
 
-app = Flask(__name__)
-CORS(app)
+from urgency_model import final_urgency
 
-@app.route("/", methods=["GET"])
+app = Flask(
+    __name__,
+    template_folder="../dashboard/templates",
+    static_folder="../dashboard/static"
+)
+
+@app.route("/")
 def home():
-    return jsonify({"message": "Backend running successfully"})
+    return render_template("dashboard.html")
+
 
 @app.route("/predict", methods=["POST"])
 def predict():
-    data = request.get_json()
-    email_text = data.get("email", "")
+    email_text = request.form.get("email")
 
-    # Dummy logic (temporary)
-    if "urgent" in email_text.lower():
-        category = "High Priority"
+    # -----------------------------
+    # Category Prediction (Rule-based for now)
+    # -----------------------------
+    text = email_text.lower()
+
+    if "refund" in text or "not working" in text or "complaint" in text:
+        category = "Complaint"
+    elif "request" in text or "please provide" in text:
+        category = "Request"
+    elif "offer" in text or "lottery" in text or "free money" in text:
+        category = "Spam"
     else:
-        category = "Normal Priority"
+        category = "General"
 
-    return jsonify({
-        "email": email_text,
-        "prediction": category
-    })
+    # -----------------------------
+    # Urgency Prediction (Your ML + Keywords)
+    # -----------------------------
+    urgency = final_urgency(email_text)
+
+    result = {
+        "category": category,
+        "urgency": urgency
+    }
+
+    return render_template("dashboard.html", result=result)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

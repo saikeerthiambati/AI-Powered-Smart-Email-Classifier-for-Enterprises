@@ -4,14 +4,14 @@ print("🚀 Starting spam dataset merging...")
 
 # ----- Load datasets -----
 try:
-    df_cleaned = pd.read_csv("data/Raw Datasets/spam_dataset.csv")
+    df_cleaned = pd.read_csv(r"C:\Users\HP\Desktop\Infosys Springboard\data\Raw Datasets\spam_dataset.csv")
     print("✔ Loaded spam_dataset.csv")
 except:
     print("❌ Could not load spam_dataset.csv")
     exit()
 
 try:
-    df_emailclass = pd.read_csv("data/Raw Datasets/emailclass.csv")
+    df_emailclass = pd.read_csv(r"C:\Users\HP\Desktop\Infosys Springboard\data\Raw Datasets\emailclass.csv")
     print("✔ Loaded emailclass.csv")
 except:
     print("❌ Could not load emailclass.csv")
