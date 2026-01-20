@@ -117,12 +117,12 @@ src/baseline_models.py
 
 ---
 
-✅ Milestone 3 — Urgency Detection & Priority Classification (Completed)
+## ✅ Milestone 3 — Urgency Detection & Priority Classification (Completed)
 
-Objective:
+**Objective:**
 Identify time-sensitive emails and assign appropriate priority levels to enable faster response handling.
 
-Key Achievements
+**Key Achievements**
 
 - Designed a rule-based urgency detection system
 - Created a curated list of urgency keywords (e.g., urgent, immediate, ASAP, critical)
@@ -144,16 +144,16 @@ src/urgency_keywords.py
 src/priority.py
 ```
 
-✅ Milestone 4 — Application Integration, Deployment & Documentation (Completed)
+##✅ Milestone 4 — Application Integration, Deployment & Documentation (Completed)
 
-Objective:
+**Objective:**
 Build an interactive user interface, integrate all ML components, and deploy the system for real-world usage.
 
-Key Achievements
+**Key Achievements**
 
 - Integrated all modules (spam detection, categorization, urgency) into a single pipeline
 - Developed a user-friendly Streamlit web application
-Implemented:
+**Implemented:**
  - Email text input interface
  - “Classify Email” action button
 Real-time display of:
