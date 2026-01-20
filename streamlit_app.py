@@ -1,162 +1,115 @@
 import streamlit as st
-import sys
+import pandas as pd
+import re
 
-# Allow imports from src folder
-sys.path.append("src")
-from urgency_model import final_urgency
-
-
-# --------------------------------------------------
+# -----------------------------
 # Page Configuration
-# --------------------------------------------------
+# -----------------------------
 st.set_page_config(
     page_title="AI Powered Smart Email Classifier",
     page_icon="📧",
     layout="centered"
 )
 
+# -----------------------------
+# Helper Functions
+# -----------------------------
+def clean_text(text):
+    text = str(text).lower()
+    text = re.sub(r"http\S+|www\S+", "", text)
+    text = re.sub(r"[^a-zA-Z\s]", "", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
 
-# --------------------------------------------------
-# Custom CSS
-# --------------------------------------------------
-st.markdown("""
-<style>
-.block-container {
-    padding-top: 0rem !important;
-}
+def detect_category(text):
+    text = text.lower()
 
-body {
-    background-color: #0b0f19;
-}
+    if any(word in text for word in ["refund", "complaint", "issue", "not working", "problem"]):
+        return "Complaint"
+    elif any(word in text for word in ["request", "support", "help", "please"]):
+        return "Request"
+    elif any(word in text for word in ["offer", "win", "free", "click", "buy now"]):
+        return "Spam"
+    else:
+        return "General"
 
-.app-container {
-    background: linear-gradient(180deg, #0f172a, #020617);
-    padding: 40px;
-    border-radius: 18px;
-    box-shadow: 0 0 30px rgba(0,0,0,0.6);
-    max-width: 900px;
-    margin: 20px auto;
-}
+def detect_urgency(text):
+    text = text.lower()
 
-.title {
-    text-align: center;
-    font-size: 34px;
-    font-weight: 700;
-    color: #60a5fa;
-    margin-bottom: 6px;
-}
+    high_keywords = ["urgent", "asap", "immediately", "critical", "not working"]
+    medium_keywords = ["soon", "priority", "follow up", "by tomorrow"]
 
-.subtitle {
-    text-align: center;
-    font-size: 15px;
-    color: #cbd5e1;
-    margin-bottom: 35px;
-}
+    if any(word in text for word in high_keywords):
+        return "High"
+    elif any(word in text for word in medium_keywords):
+        return "Medium"
+    else:
+        return "Low"
 
-.card {
-    padding: 18px;
-    border-radius: 12px;
-    text-align: center;
-    color: white;
-    font-weight: 600;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.4);
-}
+def detect_priority(category, urgency):
+    if category == "Complaint" and urgency == "High":
+        return "High"
+    elif urgency == "Medium":
+        return "Medium"
+    else:
+        return "Low"
 
-.insight {
-    background-color: #020617;
-    border-left: 4px solid #60a5fa;
-    padding: 16px;
-    border-radius: 10px;
-    color: #e5e7eb;
-}
-</style>
-""", unsafe_allow_html=True)
-
-
-# --------------------------------------------------
-# UI Layout
-# --------------------------------------------------
-st.markdown("<div class='app-container'>", unsafe_allow_html=True)
-
-st.markdown("<div class='title'>📧 AI Powered Smart Email Classifier</div>", unsafe_allow_html=True)
-st.markdown("<div class='subtitle'>Enterprise Email Categorization & Urgency Detection System</div>", unsafe_allow_html=True)
-
-email = st.text_area(
-    "✉️ Enter Email Content",
-    height=160,
-    placeholder="Paste the email content here...",
-    key="email_input"
+# -----------------------------
+# UI
+# -----------------------------
+st.markdown(
+    """
+    <h1 style='text-align:center; color:#4da3ff;'>📧 AI Powered Smart Email Classifier</h1>
+    <p style='text-align:center; color:gray;'>
+    Enterprise Email Categorization & Urgency Detection System
+    </p>
+    """,
+    unsafe_allow_html=True
 )
 
-# --------------------------------------------------
-# Button (ONLY ONE)
-# --------------------------------------------------
-clicked = st.button("🚀 Classify Email", key="classify_btn")
+st.markdown("### ✉️ Enter Email Content")
+email_text = st.text_area(
+    "",
+    placeholder="Paste the email content here...",
+    height=180
+)
 
-if clicked:
-    if not email.strip():
-        st.warning("⚠️ Please enter email content before classification.")
+# -----------------------------
+# Prediction Button
+# -----------------------------
+if st.button("🚀 Classify Email", key="classify_btn"):
+    if email_text.strip() == "":
+        st.warning("Please enter email content.")
     else:
-        text = email.lower()
+        cleaned = clean_text(email_text)
 
-        # Category logic
-        if "refund" in text or "not working" in text or "complaint" in text:
-            category = "Complaint"
-        elif "request" in text or "please" in text:
-            category = "Request"
-        elif "offer" in text or "lottery" in text or "free" in text:
-            category = "Spam"
-        else:
-            category = "General"
+        category = detect_category(cleaned)
+        urgency = detect_urgency(cleaned)
+        priority = detect_priority(category, urgency)
 
-        urgency = final_urgency(email)
-
-        st.markdown("### 📊 Classification Result")
+        st.markdown("---")
+        st.subheader("📊 Classification Result")
 
         col1, col2, col3 = st.columns(3)
 
         with col1:
-            st.markdown(
-                f"<div class='card' style='background:#1e40af'>📂 Category<br><span style='font-size:20px'>{category}</span></div>",
-                unsafe_allow_html=True
-            )
+            st.metric("Category", category)
 
         with col2:
-            st.markdown(
-                f"<div class='card' style='background:#be123c'>⚡ Urgency<br><span style='font-size:20px'>{urgency}</span></div>",
-                unsafe_allow_html=True
-            )
+            st.metric("Urgency", urgency)
 
         with col3:
-            st.markdown(
-                f"<div class='card' style='background:#0f766e'>📏 Length<br><span style='font-size:20px'>{len(email)}</span></div>",
-                unsafe_allow_html=True
-            )
+            st.metric("Priority", priority)
 
-        st.markdown("### 📈 Email Statistics")
-        st.write(f"**Total Words:** {len(email.split())}")
-
-        st.markdown("### 🤖 AI Insight")
-        st.markdown(
-            f"""
-            <div class='insight'>
-            This email has been classified as <b>{category}</b> with 
-            <b>{urgency}</b> urgency.  
-            High-urgency emails should be prioritised for immediate action.
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-
-st.markdown("</div>", unsafe_allow_html=True)
-
-
-# --------------------------------------------------
+# -----------------------------
 # Footer
-# --------------------------------------------------
+# -----------------------------
 st.markdown(
-    "<p style='text-align:center;color:#9ca3af;margin-top:25px;font-size:13px;'>"
-    "Built by Sai Keerthi • Infosys Springboard Project"
-    "</p>",
+    """
+    <hr>
+    <p style='text-align:center; color:gray; font-size:13px;'>
+    Built by Sai Keerthi • Infosys Springboard Project
+    </p>
+    """,
     unsafe_allow_html=True
 )
