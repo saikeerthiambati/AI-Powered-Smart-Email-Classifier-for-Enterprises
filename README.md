@@ -1,23 +1,46 @@
-# AI Powered Smart Email Classifier for Enterprises
+# 📧 AI Powered Smart Email Classifier for Enterprises
 
-An AI-powered system designed to automatically clean, categorize, and analyze enterprise email datasets for intelligent spam detection, email categorization, and priority assignment using Natural Language Processing (NLP) and Machine Learning techniques.
+An AI-powered system that automatically classifies enterprise emails and detects urgency to improve response efficiency using NLP and Machine Learning.
 
+---
 
+## 🚀 Project Overview
 
-## 📌 Project Overview
+Enterprises receive thousands of emails daily related to customer complaints, service requests, feedback, and spam.  
+Manual email triaging is time-consuming and inefficient, often leading to delayed responses and reduced customer satisfaction.
 
-Enterprises receive thousands of emails daily related to customer complaints, service requests, feedback, and spam. Manual email triaging is time-consuming and inefficient, often leading to delayed responses and reduced customer satisfaction.
+This project automates:
+- Email categorization
+- Urgency detection
+- Priority assignment
 
-This project focuses on building an AI-powered Smart Email Classifier that automates email categorization and supports intelligent decision-making using NLP and Machine Learning models.
+using **Machine Learning and NLP techniques**.
 
-```
+---
+
 ## 🎯 Project Objectives
+
 - Automate email classification into multiple categories  
 - Reduce manual effort in email triaging  
 - Improve response prioritization and efficiency  
 - Prepare a foundation for enterprise-level deployment  
 
 ---
+
+## 🧠 Features
+
+- 📂 Email Categorization (Complaint, Request, Spam, etc.)
+- ⚡ Urgency Detection (High / Medium / Low)
+- 🚨 Priority Assignment
+- 🖥️ Interactive UI using Streamlit
+- 📊 Cleaned & processed datasets
+- 🧪 Rule-based + ML-based models
+
+---
+
+## 🗂️ Project Structure
+
+```
 
 AI-Powered-Smart-Email-Classifier-for-Enterprises/
 │
